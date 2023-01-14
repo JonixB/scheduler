@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { getAppointmentsForDay } from "helpers/selectors";
 
 import "components/Application.scss";
 import DayList from "components/DayList";
@@ -12,7 +13,7 @@ export default function Application(props) {
     appointments: {}
   });
 
-  const dailyAppointments = [];
+  let dailyAppointments = [];
 
   const setDay = day => setState({ ...state, day });
 
@@ -24,6 +25,8 @@ export default function Application(props) {
       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data }));
     });
   }, []);
+
+  dailyAppointments = getAppointmentsForDay(state, state.day)
 
   return (
     <main className="layout">
