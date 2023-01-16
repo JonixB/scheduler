@@ -13,11 +13,11 @@ export default function useVisualMode(initial) {
   };
 
   function back() {
-    const copyHistory = [...history];
-    copyHistory.pop(mode)
-    setHistory(() => copyHistory);
     if (history.length > 1) {
       setMode(() => copyHistory[(copyHistory.length - 1)]);
+      const copyHistory = [...history];
+      copyHistory.pop(mode)
+      setHistory(() => copyHistory);
     }
   };
   return { mode, transition, back };
