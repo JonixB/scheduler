@@ -14,9 +14,6 @@ export default function Application(props) {
     interviewers: {}
   });
 
-  let dailyAppointments = [];
-  let dailyInterviewers = [];
-
   const setDay = day => setState({ ...state, day });
 
   function bookInterview(id, interview) {
@@ -51,8 +48,8 @@ export default function Application(props) {
     });
   }, []);
 
-  dailyAppointments = getAppointmentsForDay(state, state.day);
-  dailyInterviewers = getInterviewersForDay(state, state.day);
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   return (
     <main className="layout">
