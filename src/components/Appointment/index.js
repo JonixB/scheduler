@@ -5,6 +5,7 @@ import Show from "./Show";
 import Empty from "./Empty";
 import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
+import Status from "./Status";
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -17,6 +18,7 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
+    transition(SAVING);
     const interview = {
       student: name,
       interviewer
@@ -42,6 +44,7 @@ export default function Appointment(props) {
           onSave={save}
         />
       )}
+      {mode === SAVING && <Status message={"Saving Interview"} />}
     </article>
   );
 } 
