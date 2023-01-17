@@ -30,10 +30,17 @@ export default function Application(props) {
       [id]: appointment
     };
 
+    //need to use RETURN here so we return a function not the result/resolving of the function
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => setState({...state, appointments }))
   }
 
+  function cancelInterview(id) {
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => setState({...state}))
+  }
+
+  //multiple async calls to the API to grab the necessarry
   useEffect(() => {
     Promise.all([
       axios.get('api/days'),
@@ -79,6 +86,7 @@ export default function Application(props) {
               id={appointment.id}
               time={appointment.time}
               interview={interview}
+              cancelInterview={cancelInterview}
               bookInterview={bookInterview}
               interviewers={dailyInterviewers}
             />
