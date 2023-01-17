@@ -5,7 +5,6 @@ export function getAppointmentsForDay(state, day) {
   }
 
   const filteredDay = state.days.find(stateDay => stateDay.name === day)
-
   if (state.days.length < 1) {
     return [];
   }
