@@ -14,10 +14,8 @@ export default function useVisualMode(initial) {
 
   function back() {
     if (history.length > 1) {
-      setMode(() => copyHistory[(copyHistory.length - 1)]);
-      const copyHistory = [...history];
-      copyHistory.pop(mode)
-      setHistory(() => copyHistory);
+      setMode(history[history.length - 2]); //goes back to the second to the last mode
+      setHistory(prev => [...prev.slice(0, -1)]); //slices and creates a new array with the last element removed
     }
   };
   return { mode, transition, back };
