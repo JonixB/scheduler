@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
-import { setIn } from 'immutable';
 
 export default function Form(props) {
 
@@ -29,6 +28,7 @@ export default function Form(props) {
       return;
     }
 
+    setError("");
     props.onSave(student, interviewer);
   }
 
