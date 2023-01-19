@@ -12,19 +12,19 @@ A responsive single page application that is created using react. The purpose of
 
 ##Screenshots and short video demonstrations
 Initial View
-!["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)
+!["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)[Adding.webm](https://user-
 WebSocket application
-[WebSocket.webm](https://user-images.githubusercontent.com/113629390/213371471-16c81a21-e69f-4976-a879-c5ccb1081fdb.webm)
+[WebSocket.webm](https://user-images.githubusercontent.com/113629390/213372263-a53f9a66-4ce4-4293-9cd9-f41e84518bf2.webm)
 Short video for adding an appointment
-[Adding.webm](https://user-images.githubusercontent.com/113629390/213371138-5f6ae2cb-1019-4323-82b7-9ede4215be6a.webm)
+[Adding.webm](https://user-images.githubusercontent.com/113629390/213372305-f51fd811-122f-4443-b3fd-c2b86e85b4f7.webm)
 Short video for editing an appointment
-[Editing.webm](https://user-images.githubusercontent.com/113629390/213371280-9851b079-1181-4667-9915-eb4c7cc2910f.webm)
+[Editing.webm](https://user-images.githubusercontent.com/113629390/213372331-9379a875-812a-4e83-af00-73cd4efe30af.webm)
 Short video for deleting an appointment
-[Deleting.webm](https://user-images.githubusercontent.com/113629390/213371343-985d83b6-4a43-4423-9184-cf8caa256ea0.webm)
+[Deleting.webm](https://user-images.githubusercontent.com/113629390/213372361-d60f309c-3b61-46b3-aac7-ebb6bb088205.webm)
 How it looks when there is an error with the API
-[ErrorTest.webm](https://user-images.githubusercontent.com/113629390/213371610-e1133c72-7bc9-4ec1-89f7-b7574f060c5f.webm)
+[ErrorTest.webm](https://user-images.githubusercontent.com/113629390/213372407-7228fedc-80fd-459f-b26f-de936fb51928.webm)
 A full video demonstration of the features
-[FullDemo.webm](https://user-images.githubusercontent.com/113629390/213371682-924cc1c6-07cc-4127-bdaf-22f74a78820c.webm)
+[FullDemo.webm](https://user-images.githubusercontent.com/113629390/213372439-01f31215-bab3-4527-906e-e17286e4c8fe.webm)
 
 ## Dependencies and Dev Dependencies
 
