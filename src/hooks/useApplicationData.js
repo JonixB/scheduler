@@ -57,7 +57,6 @@ export default function useApplicationData() {
       .then(() => { //this resolution already has the resolved promise of adding an appointment
         dispatch({ type: SET_INTERVIEW, id, interview })
       })
-      .catch((err) => console.log(err));
   }
 
   function cancelInterview(id) {
@@ -65,7 +64,6 @@ export default function useApplicationData() {
       .then(() => { //this resolution already has the resolved promise of removing an appointment
         dispatch({ type: SET_INTERVIEW, id, interview: null })
       })
-      .catch((err) => console.log(err));
   }
 
   return {
