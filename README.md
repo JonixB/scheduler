@@ -11,23 +11,27 @@ A responsive single page application that is created using react. The purpose of
 - It will also prevent you from saving an appointment if the student name and interviewer is not set
 
 ## Screenshots and short video demonstrations
-Initial View
+### Initial View
 !["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)
-WebSocket application
-[WebSocket](https://user-images.githubusercontent.com/113629390/213375088-db2d4df5-8974-43a9-ac18-f702b1c8379c.mp4)
+### WebSocket application
+https://user-images.githubusercontent.com/113629390/213375088-db2d4df5-8974-43a9-ac18-f702b1c8379c.mp4
 
+### Short video for adding an appointment
+https://user-images.githubusercontent.com/113629390/213378061-a80e2d84-7a95-4f50-be0c-66c5a6454e60.mp4
 
+### Short video for editing an appointment
+https://user-images.githubusercontent.com/113629390/213378194-cf9bdd01-9e85-48af-8809-9641d5dd7c77.mp4
 
-Short video for adding an appointment
-[Adding.webm](https://user-images.githubusercontent.com/113629390/213372305-f51fd811-122f-4443-b3fd-c2b86e85b4f7.webm)
-Short video for editing an appointment
-[Editing.webm](https://user-images.githubusercontent.com/113629390/213372331-9379a875-812a-4e83-af00-73cd4efe30af.webm)
-Short video for deleting an appointment
-[Deleting.webm](https://user-images.githubusercontent.com/113629390/213372361-d60f309c-3b61-46b3-aac7-ebb6bb088205.webm)
+### Short video for deleting an appointment
+
+https://user-images.githubusercontent.com/113629390/213378255-e4cdcf69-769c-4335-95a4-49da414bca55.mp4
+
 How it looks when there is an error with the API
-[ErrorTest.webm](https://user-images.githubusercontent.com/113629390/213372407-7228fedc-80fd-459f-b26f-de936fb51928.webm)
-A full video demonstration of the features
-[FullDemo.webm](https://user-images.githubusercontent.com/113629390/213372439-01f31215-bab3-4527-906e-e17286e4c8fe.webm)
+![Error](https://user-images.githubusercontent.com/113629390/213379104-db6b2505-070e-41e4-b6f8-ae7f78fafd36.png)
+
+### A full video demonstration of the features
+https://user-images.githubusercontent.com/113629390/213378536-31ac4a88-6755-4617-aa92-8177fa6fc4ff.mp4
+
 
 ## Dependencies and Dev Dependencies
 
