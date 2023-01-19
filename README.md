@@ -2,19 +2,19 @@
 A responsive single page application that is created using react. The purpose of the project was to help build our knowledge with React, Unit Testing and E2E testing.
 
 ## Key Features
--Uses websocket so any updates is passed to all connected users in real time
--Booking an appointment which saves it into the local database using API
--Edit an existing appointment
--Delete an appointment
--Automatically updates the number of spots for the selected day
--Shows appropriate errors when unable to add/edit/delete an appointment
--It will also prevent you from saving an appointment if the student name and interviewer is not set
+- Uses websocket so any updates is passed to all connected users in real time
+- Booking an appointment which saves it into the local database using API
+- Edit an existing appointment
+- Delete an appointment
+- Automatically updates the number of spots for the selected day
+- Shows appropriate errors when unable to add/edit/delete an appointment
+- It will also prevent you from saving an appointment if the student name and interviewer is not set
 
 ##Screenshots and short video demonstrations
 Initial View
-!["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)[Adding.webm](https://user-
+!["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)
 WebSocket application
-[WebSocket.webm](https://user-images.githubusercontent.com/113629390/213372263-a53f9a66-4ce4-4293-9cd9-f41e84518bf2.webm)
+[WebSocket.webm](https://user-images.githubusercontent.com/113629390/213372263-a53f9a66-4ce4-4293-9cd9-f41e84518bf2.mov)
 Short video for adding an appointment
 [Adding.webm](https://user-images.githubusercontent.com/113629390/213372305-f51fd811-122f-4443-b3fd-c2b86e85b4f7.webm)
 Short video for editing an appointment
