@@ -5,7 +5,14 @@ const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
 
-function reducer(state, action) { //state is the current value/state while action contains what type of action to do and the new values
+const webSocketConnection = () => {
+  const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+  ws.onopen = (event) => {
+    ws.send("ping");
+  };
+};
+
+const reducer = (state, action) => { //state is the current value/state while action contains what type of action to do and the new values
   switch (action.type) {
     case SET_DAY:
       return {
@@ -13,7 +20,8 @@ function reducer(state, action) { //state is the current value/state while actio
         day: action.day
       }
     case SET_APPLICATION_DATA:
-      return { ...state,  
+      return {
+        ...state,
         days: action.days,
         appointments: action.appointments,
         interviewers: action.interviewers
@@ -28,17 +36,17 @@ function reducer(state, action) { //state is the current value/state while actio
         }
         return spots;
       }
-    
+
       const spotUpdate = (state, appointments) => {
         const filteredDay = state.days.findIndex(stateDay => stateDay.name === state.day) //finds the current index of the selected day to use as selector to find the right day to update
         const currentDay = state.days[filteredDay]; //makes sure we have the right selected day to update using index
-    
+
         const spots = spotCounter(currentDay, appointments); //passing in appointments gives the current updated list of all appointments, currentDay gives access to the array of appointments that day
-    
+
         const updatedDays = [...state.days]; //creats copy of all the current days
         const newDayObj = { ...currentDay, spots }; //new object with new spots count
         updatedDays[filteredDay] = newDayObj; //update selected day with the new count value
-    
+
         return updatedDays;
       };
 
@@ -82,13 +90,15 @@ export default function useApplicationData() {
       axios.get('api/interviewers')
     ]).then((all) => {
       dispatch({
-        type : SET_APPLICATION_DATA,
-        days : all[0].data,
-        appointments : all[1].data,
-        interviewers : all[2].data
+        type: SET_APPLICATION_DATA,
+        days: all[0].data,
+        appointments: all[1].data,
+        interviewers: all[2].data
       });
     })
       .catch((err) => console.log(err));
+
+    webSocketConnection();
   }, []); // empty array for useEffect dependency. Ensures the promise is only done on-load/once 
 
   const setDay = day => dispatch({ type: SET_DAY, day }); //uses reducer function to send an object with the needed action type and new day values
@@ -97,7 +107,7 @@ export default function useApplicationData() {
 
     //need to use RETURN here so we return a function not the result/resolving of the function
     return axios.put(`/api/appointments/${id}`, { interview })
-      .then(() => {
+      .then(() => { //this resolution already has the resolved promise of adding an appointment
         dispatch({ type: SET_INTERVIEW, id, interview })
       })
       .catch((err) => console.log(err));
@@ -105,7 +115,7 @@ export default function useApplicationData() {
 
   function cancelInterview(id) {
     return axios.delete(`/api/appointments/${id}`)
-      .then(() => {
+      .then(() => { //this resolution already has the resolved promise of removing an appointment
         dispatch({ type: SET_INTERVIEW, id, interview: null })
       })
       .catch((err) => console.log(err));
