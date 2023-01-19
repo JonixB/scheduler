@@ -10,11 +10,11 @@ A responsive single page application that is created using react. The purpose of
 - Shows appropriate errors when unable to add/edit/delete an appointment
 - It will also prevent you from saving an appointment if the student name and interviewer is not set
 
-##Screenshots and short video demonstrations
+## Screenshots and short video demonstrations
 Initial View
 !["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)
 WebSocket application
-[WebSocket.webm](https://user-images.githubusercontent.com/113629390/213372263-a53f9a66-4ce4-4293-9cd9-f41e84518bf2.mov)
+![WebSocket](https://user-images.githubusercontent.com/113629390/213374031-8fc43872-199b-4de3-ad76-96558246030e.gif)
 Short video for adding an appointment
 [Adding.webm](https://user-images.githubusercontent.com/113629390/213372305-f51fd811-122f-4443-b3fd-c2b86e85b4f7.webm)
 Short video for editing an appointment
