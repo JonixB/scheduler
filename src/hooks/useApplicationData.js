@@ -1,76 +1,11 @@
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
 
-const SET_DAY = "SET_DAY";
-const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
-const SET_INTERVIEW = "SET_INTERVIEW";
-
-const webSocketConnection = () => {
-  const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
-  ws.onopen = (event) => {
-    ws.send("ping");
-  };
-};
-
-const reducer = (state, action) => { //state is the current value/state while action contains what type of action to do and the new values
-  switch (action.type) {
-    case SET_DAY:
-      return {
-        ...state,
-        day: action.day
-      }
-    case SET_APPLICATION_DATA:
-      return {
-        ...state,
-        days: action.days,
-        appointments: action.appointments,
-        interviewers: action.interviewers
-      }
-    case SET_INTERVIEW: {
-      const spotCounter = (currentDay, appointments) => {
-        let spots = 0;
-        for (const id of currentDay.appointments) {
-          if (!appointments[id].interview) {
-            spots++;
-          }
-        }
-        return spots;
-      }
-
-      const spotUpdate = (state, appointments) => {
-        const filteredDay = state.days.findIndex(stateDay => stateDay.name === state.day) //finds the current index of the selected day to use as selector to find the right day to update
-        const currentDay = state.days[filteredDay]; //makes sure we have the right selected day to update using index
-
-        const spots = spotCounter(currentDay, appointments); //passing in appointments gives the current updated list of all appointments, currentDay gives access to the array of appointments that day
-
-        const updatedDays = [...state.days]; //creats copy of all the current days
-        const newDayObj = { ...currentDay, spots }; //new object with new spots count
-        updatedDays[filteredDay] = newDayObj; //update selected day with the new count value
-
-        return updatedDays;
-      };
-
-      const appointment = {
-        ...state.appointments[action.id],
-        interview: action.interview ? { ...action.interview } : null //sets the interview key to have the value of the action.interview if it's not empty, otherwise set to null
-      }
-
-      const appointments = {
-        ...state.appointments,
-        [action.id]: appointment
-      }
-      return {
-        ...state,
-        days: spotUpdate(state, appointments),
-        appointments
-      }
-    }
-    default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
-  }
-}
+import reducer, {
+  SET_DAY,
+  SET_APPLICATION_DATA,
+  SET_INTERVIEW
+} from "reducers/application";
 
 export default function useApplicationData() {
   const initialState = {
@@ -102,6 +37,18 @@ export default function useApplicationData() {
   }, []); // empty array for useEffect dependency. Ensures the promise is only done on-load/once 
 
   const setDay = day => dispatch({ type: SET_DAY, day }); //uses reducer function to send an object with the needed action type and new day values
+
+  const webSocketConnection = () => {
+    const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);  
+    ws.addEventListener('message', (event) => { //listens to every message event from the websocket and dispatches an action if type is "SET_INTERVIEW" to update state
+      const { type, id, interview } = JSON.parse(event.data);
+      if(type === "SET_INTERVIEW") {
+        dispatch({ type, id, interview });
+      }
+    });
+
+    return () => ws.close();
+  };
 
   function bookInterview(id, interview) {
 
