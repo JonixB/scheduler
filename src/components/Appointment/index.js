@@ -46,13 +46,13 @@ export default function Appointment(props) {
 
   //handles changes to the interview data to rerender the view
   useEffect(() => {
-    if (interview && mode === EMPTY) {
+    if (props.interview && mode === EMPTY) {
      transition(SHOW);
     }
-    if (interview === null && mode === SHOW) {
+    if (props.interview === null && mode === SHOW) {
      transition(EMPTY);
     }
-   }, [interview, transition, mode]);
+   }, [props.interview, transition, mode]);
 
   return (
     <article className="appointment" data-testid="appointment">
