@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.scss";
 import Header from "./Header";
 import Show from "./Show";
@@ -34,7 +34,7 @@ export default function Appointment(props) {
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(() => transition(ERROR_SAVE, true));
-  }
+  };
 
   //delete function
   function cancel() {
@@ -42,13 +42,23 @@ export default function Appointment(props) {
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
       .catch(() => transition(ERROR_DELETE, true));
-  }
+  };
+
+  //handles changes to the interview data to rerender the view
+  useEffect(() => {
+    if (interview && mode === EMPTY) {
+     transition(SHOW);
+    }
+    if (interview === null && mode === SHOW) {
+     transition(EMPTY);
+    }
+   }, [interview, transition, mode]);
 
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
