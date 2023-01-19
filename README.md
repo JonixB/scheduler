@@ -14,7 +14,9 @@ A responsive single page application that is created using react. The purpose of
 Initial View
 !["Initial View"](https://github.com/JonixB/scheduler/blob/master/docs/Initial.png?raw=true)
 WebSocket application
-https://user-images.githubusercontent.com/113629390/213374189-348dfe16-1722-4d51-9007-6d9a839b430a.mov
+[WebSocket](https://user-images.githubusercontent.com/113629390/213375088-db2d4df5-8974-43a9-ac18-f702b1c8379c.mp4)
+
+
 
 Short video for adding an appointment
 [Adding.webm](https://user-images.githubusercontent.com/113629390/213372305-f51fd811-122f-4443-b3fd-c2b86e85b4f7.webm)
